@@ -166,8 +166,8 @@ func (s *HTTPServer) ValidateJobRequest(resp http.ResponseWriter, req *http.Requ
 		return nil, CodedError(405, ErrInvalidMethod)
 	}
 
-  var validateRequest api.JobValidateRequest
-  if err := decodeBody(req, &validateRequest); err != nil {
+	var validateRequest api.JobValidateRequest
+	if err := decodeBody(req, &validateRequest); err != nil {
 		return nil, CodedError(400, err.Error())
 	}
 	if validateRequest.Job == nil {
